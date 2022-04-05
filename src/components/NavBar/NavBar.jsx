@@ -1,7 +1,7 @@
 import React from "react";
 import { Navbar, Nav, Container } from "react-bootstrap";
 import { BsFillCartFill } from "react-icons/bs";
-import './index.css'
+import './NavBar.css'
 const NavBar = () => {
 return <>
   <Navbar className="Navbar" bg="dark" variant="dark">
