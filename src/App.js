@@ -19,6 +19,8 @@ const App = () => {
       <button> Carnes</button>
       <button> Panadería</button>
       <button> Chocolates</button>
+      <button> Postres</button>
+
     </ItemListContainer>
     { show ? < Counter initial={0} stock={20} onAdd={addProduct} /> : null }
     </>
