@@ -1,29 +1,26 @@
+import { useState } from 'react'
 import './App.css';
+import ItemDetailContainer from './components/ItemlDetailContainer/ItemDetailContainer'
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
-import NavBar from './components/NavBar/NavBar';
-import Counter from './components/Counter/Counter'
-import {useState} from 'react'
+import NavBar from './components/NavBar/NavBar'
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
+
 
 const App = () => {
-  const [show, setShow] = useState(true)
-
-  const addProduct = (quantity) => {
-    console.log(`Se agregó al carrito ${quantity} productos`);
-  }
 
   return (
-    <>
-    < NavBar />
-    <ItemListContainer greeting={'Bienvenido a tu tienda'}>
-      <button> Lacteos</button>
-      <button> Carnes</button>
-      <button> Panadería</button>
-      <button> Chocolates</button>
-      <button> Postres</button>
-
-    </ItemListContainer>
-    { show ? < Counter initial={0} stock={20} onAdd={addProduct} /> : null }
-    </>
+      <div className="App">
+        <BrowserRouter>
+          <NavBar />        
+          <Routes>
+            <Route path='/' element={<ItemListContainer />} />
+            <Route path='/category/:categoryId' element={<ItemListContainer />} />
+            <Route path='/detail/:productId' element={<ItemDetailContainer />} />
+            <Route path='*' element={<h1>NOT FOUND 404</h1>}/>
+          </Routes>
+        </BrowserRouter>
+        
+      </div>
   );
 }
 
