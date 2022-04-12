@@ -9,7 +9,7 @@ const products = [
         description: 'multisabores'
     },
     {
-        id: 1,
+        id: 2,
         name: 'leche',
         price: 1200,
         category: 'lateos',
@@ -18,7 +18,7 @@ const products = [
         description: 'leche crema'
     },
     {
-        id: 1,
+        id: 3,
         name: 'media luna',
         price: 800,
         category: 'panaderia',
@@ -27,7 +27,7 @@ const products = [
         description: 'caja de 6 medias lunas'
     },
     {
-        id: 1,
+        id: 4,
         name: 'milanesas',
         price: 2800,
         category: 'carnes',
@@ -36,7 +36,7 @@ const products = [
         description: 'carne adobada frita o al horno'
     },
     {
-        id: 1,
+        id: 5,
         name: 'milka',
         price: 1400,
         category: 'chocolate',
@@ -45,7 +45,7 @@ const products = [
         description: 'barra de chocolate'
     },
     {
-        id: 1,
+        id: 6,
         name: 'leche asada',
         price: 1900,
         category: 'postres',
@@ -54,7 +54,7 @@ const products = [
         description: 'postre de leche '
     },
     {
-        id: 1,
+        id: 7,
         name: 'muslos de pollo',
         price: 2500,
         category: 'carnes',
@@ -63,7 +63,7 @@ const products = [
         description: 'muslo de pollo, precio por kilo'
     },
     {
-        id: 1,
+        id: 8,
         name: 'pan blanco',
         price: 1000,
         category: 'panaderia',
@@ -73,11 +73,33 @@ const products = [
     },
 ]
 
-export const getProducts = () => {
+const categories = [
+    {id: 'lateos', description: 'lacteos'},
+    {id: 'postres', description: 'postres'},
+    {id: 'panaderia', description: 'panaderia'},
+    {id: 'carnes', description: 'carnes'}
+]
+
+export const getCategories = () => {
+    return new Promise(resolve => {
+        setTimeout(() => {
+            resolve(categories)
+        }, 500)
+    })
+}
+
+export const getProducts = (categoryId) => {
     return new Promise (resolve => {
         setTimeout(() => {
-            resolve(products)
-        
-        }, 2000)
+            resolve(categoryId ? products.filter(prod => prod.category === categoryId) : products)
+        }, 500)
+    })
+}
+
+export const getProductsById = (id) => {
+    return new Promise (resolve => {
+        setTimeout(() => {
+            resolve(products.find(prod => prod.id === id))
+        }, 500)
     })
 }

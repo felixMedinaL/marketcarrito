@@ -2,9 +2,9 @@ import Item from '../Item/Item'
 
 const ItemList = ({products}) => {
     return( 
-        <ul>
+        <div>
             {products.map(prod => <Item key={prod.id} {...prod} />)}
-        </ul>
+        </div>
     )
 }
 
